@@ -1,0 +1,14 @@
+{
+  "name": "electron-vite-typescript",
+  "version": "0.0.0",
+  "description": "Electron-Main(tsc) + Preload-Script(tsc) + Electron+Renderer(Vite)",
+  "main": "electron/index.js",
+  "repository": "https://github.com/caoxiemeihao/electron-vite-typescript.git",
+  "author": "草鞋没号 <308487730@qq.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "electron": "^20.1.1"
+  }
+}
