@@ -10,9 +10,11 @@ import {
   src2dist,
 } from './config.mjs';
 
-const inputs = fastGlob.sync(globs.map(p => path.join(root, p)));
-await build(inputs);
-await viteBuild({ configFile: 'src/renderer/vite.config.js' });
+if (process.argv[1].includes('scripts/build.mjs')) {
+  const inputs = fastGlob.sync(globs.map(p => path.join(root, p)));
+  await build(inputs);
+  await viteBuild({ configFile: 'src/renderer/vite.config.js' });
+}
 
 /**
  * @param {string[]} files 
