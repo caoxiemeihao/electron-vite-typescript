@@ -12,5 +12,9 @@ declare global {
       DIST: string
       ROOT: string
     }
+
+    interface Process {
+      APP: import('child_process').ChildProcessWithoutNullStreams
+    }
   }
 }

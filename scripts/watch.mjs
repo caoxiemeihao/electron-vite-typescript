@@ -40,15 +40,13 @@ function app(file) {
   const main = normalizePath(file).includes('src/main/');
   const preload = normalizePath(file).includes('src/preload/');
   if (main) {
-    if (app.APP) {
-      app.APP.kill();
-      app.APP.removeAllListeners();
+    if (process.APP) {
+      process.APP.kill();
+      process.APP.removeAllListeners();
     }
-    app.APP = cp.spawn(electron, ['.'], { stdio: 'inherit' });
-    app.APP.once('exit', process.exit);
+    process.APP = cp.spawn(electron, ['.'], { stdio: 'inherit' });
+    process.APP.once('exit', process.exit);
   } else if (preload) {
     server.ws.send({ type: 'full-reload' });
   }
 }
-/** @type {import('child_process').ChildProcessWithoutNullStreams} */
-app.APP = null
